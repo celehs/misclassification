@@ -1,0 +1,56 @@
+---
+# title: ""
+output: github_document
+---
+
+# Evaluating Biomarkers using Panel Current Status Data with Misclassication Errors
+
+__NOTE__: WORK IN PROGRESS!
+
+## Installation
+
+Install development version from GitHub.
+
+```{r, eval=FALSE}
+# install.packages("remotes")
+remotes::install_github("celehs/misclassification")
+```
+
+Load the package into R.
+
+```{r}
+library(misclassification)
+```
+
+## Simulated Example
+
+```{r}
+source("examples/mkdata.R")
+```
+
+```{r}
+data <- mkdata(
+      beta = 1,
+      lambda0 = 0.01 * (1:5),
+      theta = c(0.9, 0.88, 0.85, 0.8, 0.75),
+      phi = rep(0.95, 5),
+      n = 5000,
+      seed = 1)
+data.table::data.table(data)
+```
+
+```{r}
+with(data, addmargins(table(d0, t0)))
+```
+
+### Standard Discrete Proportional Hazards (DPH) Model
+
+```{r}
+summary(with(data, dph_fit(t0, d0, z))) 
+```
+
+### TODO: Adjusted Proportional Hazards (APH) Model
+
+## GitHub Repository
+
+<https://github.com/celehs/misclassification/>

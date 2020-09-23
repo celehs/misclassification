@@ -1,0 +1,16 @@
+Package: misclassification
+Version: 0.1.0
+Title: Panel Current Status Data with Misclassification Errors
+Authors@R: 
+    c(person("PARSE",
+             role = c("aut", "cre"),
+             email = "software@parse-health.org"))    
+Description: Evaluating biomarkers using panel current status data with 
+    misclassification errors.
+License: GPL-3
+Encoding: UTF-8
+URL: https://github.com/celehs/misclassification
+BugReports: https://github.com/celehs/misclassification/issues
+RoxygenNote: 7.1.1
+VignetteBuilder: knitr
+Suggests: knitr, rmarkdown
