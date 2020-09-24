@@ -26,8 +26,8 @@ mkdata <- function(beta, lambda0, theta, phi, n, seed = 1) {
         M[r, "w"] <- term1 * term2 * theta[j - i + 1] * p[i]
       } else {
         term1 <- if (j > 1) prod(phi[1:(j - 1)]) else 1
-        term2 <- if (i > j) prod(1 - phi[1:(i - j)]) else 1
-        M[r, "w"] <- term1 * term2 * theta[i - j + 1] * p[i] 
+        term2 <- if (i > j) prod(1 - phi[j:(i - 1)]) else 1
+        M[r, "w"] <- term1 * term2 * theta[1] * p[i] 
       }
     }
     M <- rbind(M, c(6, 6, 1 - sum(M$w)))
