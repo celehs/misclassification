@@ -162,11 +162,11 @@ for (m in 1:5) {
 }
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
+![](README_files/figure-gfm/ROC-1.png)<!-- -->
 
 ``` r
 proc.time()
 ```
 
     ##    user  system elapsed 
-    ##  27.023   2.292  29.320
+    ##  27.223   2.325  29.526

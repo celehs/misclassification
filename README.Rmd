@@ -106,7 +106,7 @@ acc_est(
    lambda0 = lambda0)$AUC
 ```
 
-```{r, fig.height=10}
+```{r ROC, fig.height=10}
 par(mfrow = c(3, 2))
 for (m in 1:5) {
    x <- c(0, est$FPR[, m])
