@@ -6,9 +6,10 @@
 #' @param t0 observed event time
 #' @param d0 observed event indicator
 #' @param X baseline covaraites
+#' @export
 loglik <- function(beta, lambda0, theta, phi, t0, d0, X) {
   n <- length(t0)
-  eta <- c(X %*% beta)
+  eta <- c(as.matrix(X) %*% beta)
   gamma0 <- stats::qlogis(lambda0)
   M <- t(outer(1 + exp(gamma0), -exp(eta), "^"))
   lik <- rep(NA, n)

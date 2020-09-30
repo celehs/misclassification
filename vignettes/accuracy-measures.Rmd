@@ -1,8 +1,8 @@
 ---
-title: "Accuracy Meansures"
+title: "Accuracy Measures"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Accuracy Meansures}
+  %\VignetteIndexEntry{Accuracy Measures}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -15,25 +15,19 @@ vignette: >
 
 - False Positive Rate: $\text{FPR}_t(z) = P(Z \geq z | D_t = 0)$
 
-- Positive Predictive Value: $\text{PPV}_t(z) = P(D_t = 1 | Z \geq z)$
-
-- Negative Predictive Value: $\text{NPV}_t(z) = P(D_t = 0 | Z < z)$
-
 - Receiver Operating Characteristic: $\text{ROC}_t(u) = \text{TPR}_t\{\text{FPR}_t^{-1}(u)\}$
 
 - Area Under Curve: $\text{AUC}_t = \int \text{ROC}_t(u) du$
 
 ## Estimation
 
-- $\hat{S}(t | z) = \exp[-\hat{\Lambda}_0(t) \exp\{{\hat{\beta} ^\top \phi(z)}\}]$
+- $\widehat{\Lambda}_0(t) = \sum_{m=1}^t \widehat{\lambda}_{0m}$
 
-- $\widehat{\text{TPR}}_t(z) = \dfrac{\sum_{i=1}^n \{1 - \hat{S}(t | Z_i)\} I(Z_i > z)}{\sum_{i=1}^n \{1 - \hat{S}(t | Z_i)\}}$
+- $\widehat{S}(t | Z_i) = \exp[-\hat{\Lambda}_0(t) \exp\{{\widehat{\beta} ^\top \psi(Z_i)}\}]$
 
-- $\widehat{\text{FPR}}_t(z) = \dfrac{\sum_{i=1}^n \hat{S}(t | Z_i) I(Z_i > z)}{\sum_{i=1}^n \hat{S}(t | Z_i)}$
+- $\widehat{\text{TPR}}_t(z) = \dfrac{\sum_{i=1}^n \{1 - \widehat{S}(t | Z_i)\} I(Z_i \geq z)}{\sum_{i=1}^n \{1 - \widehat{S}(t | Z_i)\}}$
 
-- $\widehat{\text{PPV}}_t(z) = \dfrac{\sum_{i=1}^n \{1 - \hat{S}(t | Z_i)\} I(Z_i > z)}{\sum_{i=1}^n I(Z_i \geq z)}$
-
-- $\widehat{\text{NPV}}_t(z) = \dfrac{\sum_{i=1}^n \hat{S}(t | Z_i) I(Z_i < z)}{\sum_{i=1}^n I(Z_i < z)}$
+- $\widehat{\text{FPR}}_t(z) = \dfrac{\sum_{i=1}^n \widehat{S}(t | Z_i) I(Z_i \geq z)}{\sum_{i=1}^n \widehat{S}(t | Z_i)}$
 
 - $\widehat{\text{AUC}}_t = \int \widehat{\text{TPR}}_t\{\widehat{\text{FPR}}_t^{-1}(u)\} du$
 

@@ -12,7 +12,7 @@
 
 
 
-<title>Accuracy Meansures</title>
+<title>Accuracy Measures</title>
 
 
 
@@ -211,7 +211,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 
 
-<h1 class="title toc-ignore">Accuracy Meansures</h1>
+<h1 class="title toc-ignore">Accuracy Measures</h1>
 
 
 
@@ -221,8 +221,6 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <li><p><span class="math inline">\(t\)</span>-year event status: <span class="math inline">\(D_t = I(T \leq t)\)</span></p></li>
 <li><p>True Positive Rate: <span class="math inline">\(\text{TPR}_t(z) = P(Z \geq z | D_t = 1)\)</span></p></li>
 <li><p>False Positive Rate: <span class="math inline">\(\text{FPR}_t(z) = P(Z \geq z | D_t = 0)\)</span></p></li>
-<li><p>Positive Predictive Value: <span class="math inline">\(\text{PPV}_t(z) = P(D_t = 1 | Z \geq z)\)</span></p></li>
-<li><p>Negative Predictive Value: <span class="math inline">\(\text{NPV}_t(z) = P(D_t = 0 | Z &lt; z)\)</span></p></li>
 <li><p>Receiver Operating Characteristic: <span class="math inline">\(\text{ROC}_t(u) = \text{TPR}_t\{\text{FPR}_t^{-1}(u)\}\)</span></p></li>
 <li><p>Area Under Curve: <span class="math inline">\(\text{AUC}_t = \int \text{ROC}_t(u) du\)</span></p></li>
 </ul>
@@ -230,11 +228,10 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <div id="estimation" class="section level2">
 <h2>Estimation</h2>
 <ul>
-<li><p><span class="math inline">\(\hat{S}(t | z) = \exp[-\hat{\Lambda}_0(t) \exp\{{\hat{\beta} ^\top \phi(z)}\}]\)</span></p></li>
-<li><p><span class="math inline">\(\widehat{\text{TPR}}_t(z) = \dfrac{\sum_{i=1}^n \{1 - \hat{S}(t | Z_i)\} I(Z_i &gt; z)}{\sum_{i=1}^n \{1 - \hat{S}(t | Z_i)\}}\)</span></p></li>
-<li><p><span class="math inline">\(\widehat{\text{FPR}}_t(z) = \dfrac{\sum_{i=1}^n \hat{S}(t | Z_i) I(Z_i &gt; z)}{\sum_{i=1}^n \hat{S}(t | Z_i)}\)</span></p></li>
-<li><p><span class="math inline">\(\widehat{\text{PPV}}_t(z) = \dfrac{\sum_{i=1}^n \{1 - \hat{S}(t | Z_i)\} I(Z_i &gt; z)}{\sum_{i=1}^n I(Z_i \geq z)}\)</span></p></li>
-<li><p><span class="math inline">\(\widehat{\text{NPV}}_t(z) = \dfrac{\sum_{i=1}^n \hat{S}(t | Z_i) I(Z_i &lt; z)}{\sum_{i=1}^n I(Z_i &lt; z)}\)</span></p></li>
+<li><p><span class="math inline">\(\widehat{\Lambda}_0(t) = \sum_{m=1}^t \widehat{\lambda}_{0m}\)</span></p></li>
+<li><p><span class="math inline">\(\widehat{S}(t | Z_i) = \exp[-\hat{\Lambda}_0(t) \exp\{{\widehat{\beta} ^\top \psi(Z_i)}\}]\)</span></p></li>
+<li><p><span class="math inline">\(\widehat{\text{TPR}}_t(z) = \dfrac{\sum_{i=1}^n \{1 - \widehat{S}(t | Z_i)\} I(Z_i \geq z)}{\sum_{i=1}^n \{1 - \widehat{S}(t | Z_i)\}}\)</span></p></li>
+<li><p><span class="math inline">\(\widehat{\text{FPR}}_t(z) = \dfrac{\sum_{i=1}^n \widehat{S}(t | Z_i) I(Z_i \geq z)}{\sum_{i=1}^n \widehat{S}(t | Z_i)}\)</span></p></li>
 <li><p><span class="math inline">\(\widehat{\text{AUC}}_t = \int \widehat{\text{TPR}}_t\{\widehat{\text{FPR}}_t^{-1}(u)\} du\)</span></p></li>
 </ul>
 </div>
