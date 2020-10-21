@@ -1,7 +1,0 @@
-template:
-  params:
-    bootswatch: spacelab
-
-navbar:
-  title: "misclassification"
-  type: inverse

@@ -1,8 +1,0 @@
-^.*\.Rproj$
-^\.Rproj\.user$
-archive
-docs
-examples
-README.Rmd
-README_files
-_pkgdown.yml
