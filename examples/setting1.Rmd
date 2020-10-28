@@ -1,0 +1,58 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Example 1 (Binary Biomarker)
+
+```{r}
+source("setting1.R")
+```
+
+### Simulation Setting
+
+```{r}
+n <- 1000
+beta <- 1
+lambda0 <- 0.1 * (1:5) # rep(.01, 7)
+lambda0_s <- 0.1 * (8:4)
+```
+
+### Data Simulation
+
+```{r}
+data1 <- mkdata1(
+  n = n, 
+  beta = beta, 
+  lambda0 = lambda0, 
+  lambda0_s = lambda0_s)
+t0 <- data1$t0
+d0 <- data1$d0
+z <- data1$z
+X <- matrix(z)
+```
+
+### Simulated Data
+
+```{r}
+data1
+```
+
+### Model Fitting
+
+```{r}
+ini <- c(beta, lambda0, lambda0_s)
+model_fit(t0, d0, X, initial = c(ini[1], qlogis(ini[-1])))
+```
+
+```{r}
+proc.time()
+```

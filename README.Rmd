@@ -5,16 +5,18 @@ output: github_document
 
 # Evaluating Biomarkers using Panel Current Status Data with Misclassication Errors
 
-__NOTE__: WORK IN PROGRESS!
+__NOTE__: WORK IN PROGRESS (WIP)!
 
 __GitHub Repository__: <https://github.com/celehs/misclassification/>
+
+![](https://raw.githubusercontent.com/celehs/misclassification/development/flowchart/flowchart-misclassification.jpg)
 
 ## Installation
 
 Install development version from GitHub.
 
 ```{r, eval=FALSE}
-# install.packages("remotes")
+# install.packages("devtools")
 devtools::install_github("celehs/misclassification")
 ```
 
@@ -24,7 +26,13 @@ Load the package into R.
 library(misclassification)
 ```
 
-## Simulated Example
+## NEW Examples (WIP)
+
+- [Example with Binary Biomarker](examples/setting1.md)
+
+- [Example with Continuous Biomarker](examples/setting2.md)
+
+## OLD Example
 
 ```{r}
 source("examples/mkdata.R")

@@ -3,14 +3,17 @@
 
 **NOTE**: WORK IN PROGRESS\!
 
-**GitHub Repository**: <https://github.com/celehs/misclassification/>
+**GitHub Repository**:
+<https://github.com/celehs/misclassification/>
+
+![](https://raw.githubusercontent.com/celehs/misclassification/development/flowchart/flowchart-misclassification.jpg)
 
 ## Installation
 
 Install development version from GitHub.
 
 ``` r
-# install.packages("remotes")
+# install.packages("devtools")
 devtools::install_github("celehs/misclassification")
 ```
 
@@ -20,7 +23,13 @@ Load the package into R.
 library(misclassification)
 ```
 
-## Simulated Example
+## NEW Examples (WIP)
+
+  - [Example with Binary Biomarker](examples/setting1.md)
+
+  - [Example with Continuous Biomarker](examples/setting2.md)
+
+## OLD Example
 
 ``` r
 source("examples/mkdata.R")
@@ -169,4 +178,4 @@ proc.time()
 ```
 
     ##    user  system elapsed 
-    ##  32.026   2.269  34.281
+    ##  32.578   2.417  34.961
