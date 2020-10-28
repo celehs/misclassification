@@ -1,12 +1,11 @@
 
 # Evaluating Biomarkers using Panel Current Status Data with Misclassication Errors
 
-**NOTE**: WORK IN PROGRESS\!
+**NOTE**: WORK IN PROGRESS (WIP)\!
 
-**GitHub Repository**:
-<https://github.com/celehs/misclassification/>
+**GitHub Repository**: <https://github.com/celehs/misclassification/>
 
-![](https://raw.githubusercontent.com/celehs/misclassification/development/flowchart/flowchart-misclassification.jpg)
+![](flowchart/flowchart-misclassification.jpg)
 
 ## Installation
 
@@ -178,4 +177,4 @@ proc.time()
 ```
 
     ##    user  system elapsed 
-    ##  32.578   2.417  34.961
+    ##  31.655   2.456  34.109

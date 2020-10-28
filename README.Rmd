@@ -9,7 +9,7 @@ __NOTE__: WORK IN PROGRESS (WIP)!
 
 __GitHub Repository__: <https://github.com/celehs/misclassification/>
 
-![](https://raw.githubusercontent.com/celehs/misclassification/development/flowchart/flowchart-misclassification.jpg)
+![](flowchart/flowchart-misclassification.jpg)
 
 ## Installation
 

@@ -85,22 +85,31 @@
 <div id="evaluating-biomarkers-using-panel-current-status-data-with-misclassication-errors" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#evaluating-biomarkers-using-panel-current-status-data-with-misclassication-errors" class="anchor"></a>Evaluating Biomarkers using Panel Current Status Data with Misclassication Errors</h1></div>
-<p><strong>NOTE</strong>: WORK IN PROGRESS!</p>
+<p><strong>NOTE</strong>: WORK IN PROGRESS (WIP)!</p>
 <p><strong>GitHub Repository</strong>: <a href="https://github.com/celehs/misclassification/" class="uri">https://github.com/celehs/misclassification/</a></p>
+<p><img src="flowchart/flowchart-misclassification.jpg"></p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
 <p>Install development version from GitHub.</p>
-<div class="sourceCode" id="cb1"><pre class="r"><span class="co"># install.packages("remotes")</span>
-<span class="kw pkg">devtools</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/devtools/man/remote-reexports.html">install_github</a></span>(<span class="st">"celehs/misclassification"</span>)</pre></div>
+<div class="sourceCode" id="cb1"><pre class="r"><span class="co"># install.packages("devtools")</span>
+<span class="kw pkg">devtools</span><span class="kw ns">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span>(<span class="st">"celehs/misclassification"</span>)</pre></div>
 <p>Load the package into R.</p>
 <div class="sourceCode" id="cb2"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">misclassification</span>)</pre></div>
 </div>
-<div id="simulated-example" class="section level2">
+<div id="new-examples-wip" class="section level2">
 <h2 class="hasAnchor">
-<a href="#simulated-example" class="anchor"></a>Simulated Example</h2>
+<a href="#new-examples-wip" class="anchor"></a>NEW Examples (WIP)</h2>
+<ul>
+<li><p><a href="examples/setting1.html">Example with Binary Biomarker</a></p></li>
+<li><p><a href="examples/setting2.html">Example with Continuous Biomarker</a></p></li>
+</ul>
+</div>
+<div id="old-example" class="section level2">
+<h2 class="hasAnchor">
+<a href="#old-example" class="anchor"></a>OLD Example</h2>
 <div class="sourceCode" id="cb3"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/source.html">source</a></span>(<span class="st">"examples/mkdata.R"</span>)</pre></div>
-<div class="sourceCode" id="cb4"><pre class="r"><span class="no">beta</span> <span class="kw">&lt;-</span> <span class="fl">1.2</span>
+<div class="sourceCode" id="cb4"><pre class="r"><span class="no">beta</span> <span class="kw">&lt;-</span> <span class="fl">1.5</span>
 <span class="no">lambda0</span> <span class="kw">&lt;-</span> <span class="fl">0.01</span> * (<span class="fl">1</span>:<span class="fl">5</span>)
 <span class="no">theta</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">0.9</span>, <span class="fl">0.88</span>, <span class="fl">0.85</span>, <span class="fl">0.8</span>, <span class="fl">0.75</span>)
 <span class="no">phi</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span>(<span class="fl">0.95</span>, <span class="fl">5</span>)
@@ -114,23 +123,23 @@
       <span class="kw">seed</span> <span class="kw">=</span> <span class="fl">1</span>)
 <span class="kw pkg">data.table</span><span class="kw ns">::</span><span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/data.table.html">data.table</a></span>(<span class="no">data</span>)</pre></div>
 <div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co">##       t0 d0        z</span></a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="co">##    1:  2  1 2.937355</span></a>
-<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="co">##    2:  3  1 3.018364</span></a>
-<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="co">##    3:  3  1 2.916437</span></a>
-<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="co">##    4:  2  1 3.159528</span></a>
-<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="co">##    5:  2  1 3.032951</span></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="co">##    1:  1  1 2.937355</span></a>
+<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="co">##    2:  2  1 3.018364</span></a>
+<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="co">##    3:  2  1 2.916437</span></a>
+<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="co">##    4:  1  1 3.159528</span></a>
+<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="co">##    5:  1  1 3.032951</span></a>
 <a class="sourceLine" id="cb5-7" data-line-number="7"><span class="co">##   ---               </span></a>
-<a class="sourceLine" id="cb5-8" data-line-number="8"><span class="co">## 4996:  2  1 3.016255</span></a>
-<a class="sourceLine" id="cb5-9" data-line-number="9"><span class="co">## 4997:  3  1 3.098074</span></a>
-<a class="sourceLine" id="cb5-10" data-line-number="10"><span class="co">## 4998:  5  1 2.930786</span></a>
-<a class="sourceLine" id="cb5-11" data-line-number="11"><span class="co">## 4999:  5  0 2.999651</span></a>
-<a class="sourceLine" id="cb5-12" data-line-number="12"><span class="co">## 5000:  4  1 3.017158</span></a></code></pre></div>
+<a class="sourceLine" id="cb5-8" data-line-number="8"><span class="co">## 4996:  1  1 3.016255</span></a>
+<a class="sourceLine" id="cb5-9" data-line-number="9"><span class="co">## 4997:  2  1 3.098074</span></a>
+<a class="sourceLine" id="cb5-10" data-line-number="10"><span class="co">## 4998:  3  1 2.930786</span></a>
+<a class="sourceLine" id="cb5-11" data-line-number="11"><span class="co">## 4999:  2  1 2.999651</span></a>
+<a class="sourceLine" id="cb5-12" data-line-number="12"><span class="co">## 5000:  2  1 3.017158</span></a></code></pre></div>
 <div class="sourceCode" id="cb6"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/with.html">with</a></span>(<span class="no">data</span>, <span class="fu"><a href="https://rdrr.io/r/stats/addmargins.html">addmargins</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span>(<span class="no">d0</span>, <span class="no">t0</span>)))</pre></div>
 <div class="sourceCode" id="cb7"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="co">##      t0</span></a>
 <a class="sourceLine" id="cb7-2" data-line-number="2"><span class="co">## d0       1    2    3    4    5  Sum</span></a>
-<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="co">##   0      0    0    0    0  177  177</span></a>
-<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="co">##   1   1448 1725 1119  420  111 4823</span></a>
-<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="co">##   Sum 1448 1725 1119  420  288 5000</span></a></code></pre></div>
+<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="co">##   0      0    0    0    0   25   25</span></a>
+<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="co">##   1   2734 1727  442   67    5 4975</span></a>
+<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="co">##   Sum 2734 1727  442   67   30 5000</span></a></code></pre></div>
 <div id="model-fitting" class="section level3">
 <h3 class="hasAnchor">
 <a href="#model-fitting" class="anchor"></a>Model Fitting</h3>
@@ -158,27 +167,27 @@
            <span class="kw">truth</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="no">start</span>[<span class="fl">1</span>], <span class="fu"><a href="https://rdrr.io/r/stats/Logistic.html">plogis</a></span>(<span class="no">start</span>[-<span class="fl">1</span>])),
            <span class="kw">param</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="no">fit</span>$<span class="no">par</span>[<span class="fl">1</span>], <span class="fu"><a href="https://rdrr.io/r/stats/Logistic.html">plogis</a></span>(<span class="no">fit</span>$<span class="no">par</span>[-<span class="fl">1</span>])), <span class="fl">3</span>))</pre></div>
 <div class="sourceCode" id="cb11"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="co">##         name truth param</span></a>
-<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="co">## 1       beta  1.20 1.244</span></a>
-<a class="sourceLine" id="cb11-3" data-line-number="3"><span class="co">## 2  lambda0_1  0.01 0.007</span></a>
-<a class="sourceLine" id="cb11-4" data-line-number="4"><span class="co">## 3  lambda0_2  0.02 0.016</span></a>
-<a class="sourceLine" id="cb11-5" data-line-number="5"><span class="co">## 4  lambda0_3  0.03 0.026</span></a>
-<a class="sourceLine" id="cb11-6" data-line-number="6"><span class="co">## 5  lambda0_4  0.04 0.035</span></a>
-<a class="sourceLine" id="cb11-7" data-line-number="7"><span class="co">## 6  lambda0_5  0.05 0.054</span></a>
-<a class="sourceLine" id="cb11-8" data-line-number="8"><span class="co">## 7    theta_1  0.90 0.958</span></a>
-<a class="sourceLine" id="cb11-9" data-line-number="9"><span class="co">## 8    theta_2  0.88 0.137</span></a>
-<a class="sourceLine" id="cb11-10" data-line-number="10"><span class="co">## 9    theta_3  0.85 0.030</span></a>
-<a class="sourceLine" id="cb11-11" data-line-number="11"><span class="co">## 10   theta_4  0.80 0.011</span></a>
-<a class="sourceLine" id="cb11-12" data-line-number="12"><span class="co">## 11   theta_5  0.75 0.013</span></a></code></pre></div>
+<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="co">## 1       beta  1.50 1.334</span></a>
+<a class="sourceLine" id="cb11-3" data-line-number="3"><span class="co">## 2  lambda0_1  0.01 0.014</span></a>
+<a class="sourceLine" id="cb11-4" data-line-number="4"><span class="co">## 3  lambda0_2  0.02 0.026</span></a>
+<a class="sourceLine" id="cb11-5" data-line-number="5"><span class="co">## 4  lambda0_3  0.03 0.035</span></a>
+<a class="sourceLine" id="cb11-6" data-line-number="6"><span class="co">## 5  lambda0_4  0.04 0.028</span></a>
+<a class="sourceLine" id="cb11-7" data-line-number="7"><span class="co">## 6  lambda0_5  0.05 0.000</span></a>
+<a class="sourceLine" id="cb11-8" data-line-number="8"><span class="co">## 7    theta_1  0.90 0.995</span></a>
+<a class="sourceLine" id="cb11-9" data-line-number="9"><span class="co">## 8    theta_2  0.88 0.204</span></a>
+<a class="sourceLine" id="cb11-10" data-line-number="10"><span class="co">## 9    theta_3  0.85 0.036</span></a>
+<a class="sourceLine" id="cb11-11" data-line-number="11"><span class="co">## 10   theta_4  0.80 0.639</span></a>
+<a class="sourceLine" id="cb11-12" data-line-number="12"><span class="co">## 11   theta_5  0.75 0.006</span></a></code></pre></div>
 <div class="sourceCode" id="cb12"><pre class="r"><span class="co"># cumulative baseline hazards</span>
 <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span>(<span class="kw">name</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span>(<span class="st">"Lambda0_"</span>, <span class="fl">1</span>:<span class="fl">5</span>),
            <span class="kw">truth</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cumsum.html">cumsum</a></span>(<span class="no">lambda0</span>),
            <span class="kw">param</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/cumsum.html">cumsum</a></span>(<span class="fu"><a href="https://rdrr.io/r/stats/Logistic.html">plogis</a></span>(<span class="no">fit</span>$<span class="no">par</span>[<span class="fl">1</span> + <span class="fl">1</span>:<span class="fl">5</span>])), <span class="fl">3</span>))</pre></div>
 <div class="sourceCode" id="cb13"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="co">##        name truth param</span></a>
-<a class="sourceLine" id="cb13-2" data-line-number="2"><span class="co">## 1 Lambda0_1  0.01 0.007</span></a>
-<a class="sourceLine" id="cb13-3" data-line-number="3"><span class="co">## 2 Lambda0_2  0.03 0.023</span></a>
-<a class="sourceLine" id="cb13-4" data-line-number="4"><span class="co">## 3 Lambda0_3  0.06 0.049</span></a>
-<a class="sourceLine" id="cb13-5" data-line-number="5"><span class="co">## 4 Lambda0_4  0.10 0.084</span></a>
-<a class="sourceLine" id="cb13-6" data-line-number="6"><span class="co">## 5 Lambda0_5  0.15 0.139</span></a></code></pre></div>
+<a class="sourceLine" id="cb13-2" data-line-number="2"><span class="co">## 1 Lambda0_1  0.01 0.014</span></a>
+<a class="sourceLine" id="cb13-3" data-line-number="3"><span class="co">## 2 Lambda0_2  0.03 0.040</span></a>
+<a class="sourceLine" id="cb13-4" data-line-number="4"><span class="co">## 3 Lambda0_3  0.06 0.074</span></a>
+<a class="sourceLine" id="cb13-5" data-line-number="5"><span class="co">## 4 Lambda0_4  0.10 0.102</span></a>
+<a class="sourceLine" id="cb13-6" data-line-number="6"><span class="co">## 5 Lambda0_5  0.15 0.102</span></a></code></pre></div>
 </div>
 <div id="accuracy-measures" class="section level3">
 <h3 class="hasAnchor">
@@ -189,13 +198,13 @@
    <span class="kw">beta</span> <span class="kw">=</span> <span class="no">fit</span>$<span class="no">par</span>[<span class="fl">1</span>],
    <span class="kw">lambda0</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Logistic.html">plogis</a></span>(<span class="no">fit</span>$<span class="no">par</span>[<span class="fl">1</span> + <span class="fl">1</span>:<span class="fl">5</span>]))
 <span class="no">est</span>$<span class="no">AUC</span></pre></div>
-<div class="sourceCode" id="cb15"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="co">## [1] 0.5417640 0.5558920 0.5830374 0.6247689 0.6900169</span></a></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="co">## [1] 0.5545099 0.5922320 0.6498856 0.6955478 0.6955681</span></a></code></pre></div>
 <div class="sourceCode" id="cb16"><pre class="r"><span class="co"># AUC at true parameters</span>
 <span class="fu"><a href="reference/acc_est.html">acc_est</a></span>(
    <span class="kw">Z</span> <span class="kw">=</span> <span class="no">data</span>$<span class="no">z</span>,
    <span class="kw">beta</span> <span class="kw">=</span> <span class="no">beta</span>,
    <span class="kw">lambda0</span> <span class="kw">=</span> <span class="no">lambda0</span>)$<span class="no">AUC</span></pre></div>
-<div class="sourceCode" id="cb17"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="co">## [1] 0.5415030 0.5569595 0.5842245 0.6248285 0.6764600</span></a></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="co">## [1] 0.5654422 0.6203994 0.7086030 0.8068632 0.8903748</span></a></code></pre></div>
 <div class="sourceCode" id="cb18"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span>(<span class="kw">mfrow</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">3</span>, <span class="fl">2</span>))
 <span class="kw">for</span> (<span class="no">m</span> <span class="kw">in</span> <span class="fl">1</span>:<span class="fl">5</span>) {
    <span class="no">x</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">0</span>, <span class="no">est</span>$<span class="no">FPR</span>[, <span class="no">m</span>])
@@ -211,7 +220,7 @@
 <p><img src="README_files/figure-gfm/ROC-1.png"><!-- --></p>
 <div class="sourceCode" id="cb19"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/proc.time.html">proc.time</a></span>()</pre></div>
 <div class="sourceCode" id="cb20"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="co">##    user  system elapsed </span></a>
-<a class="sourceLine" id="cb20-2" data-line-number="2"><span class="co">##  27.223   2.325  29.526</span></a></code></pre></div>
+<a class="sourceLine" id="cb20-2" data-line-number="2"><span class="co">##  31.655   2.456  34.109</span></a></code></pre></div>
 </div>
 </div>
 </div>
